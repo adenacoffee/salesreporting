@@ -63,7 +63,6 @@ def monthly_sales_reporting(df, start_date, end_date):
         V = np.zeros(
                 (month_end, len(product_unique)+1)
         )
-        print(V.shape)
  
         #Iterate over the product name
         for j,p in enumerate(product_unique):
@@ -123,7 +122,6 @@ def client_analyses(df):
         ]
 
         df_ = df_.groupby(["display_name"],group_keys=False).apply(lambda x:x.sort_values(["invoice_date"],ignore_index = True))
-        df_.to_csv("test.csv")
 
         #Start to analyse per client
         for n in df_.display_name.unique():
